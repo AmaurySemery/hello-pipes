@@ -12,6 +12,13 @@ export class AppController {
     return this.appService.getHello(name);
   }
 
+  @Get('articles/:id')
+  getArticleById(@Param(':id') id) {
+    const idType = typeof id;
+    const res = { id: id, idType: idType};
+    return res;
+  }
+
   @Post()
   @UsePipes()
   createMessage(@Body() message) {
